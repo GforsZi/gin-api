@@ -1,0 +1,49 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of `go build`
+/bin/
+/dist/
+
+# Coverage
+*.out
+coverage.txt
+coverage.html
+
+# Go workspace file
+go.work
+go.work.sum
+
+# Dependency directories (kalau vendoring)
+vendor/
+
+# Env & secrets
+.env
+.env.local
+*.env
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Air (live reload, kalau pakai)
+tmp/
+.air.toml.bak
+
+# Build artifacts custom
+/build/
+*.log
