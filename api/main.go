@@ -3,6 +3,8 @@ package main
 import (
 	"net/http"
 
+	// "github.com/GforsZi/gin-api/api/internal/config"
+	// "github.com/GforsZi/gin-api/api/internal/database"
 	"github.com/gin-gonic/gin"
 )
 
@@ -24,6 +26,9 @@ func getAlbums(c *gin.Context) {
 }
 
 func main() {
+	// cfg := config.Load()
+	// db := database.Connect(cfg)
+
 	router := gin.Default()
 	router.GET("albums", getAlbums)
 	router.Run("localhost:8080")
