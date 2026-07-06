@@ -9,11 +9,19 @@ A clean, modular RESTful API built with **Go**, **Gin** (Web Framework), and **G
 - **Data Validation**: Struct-based validation using Gin binding tags.
 - **Database**: Automatic schema migration via GORM and MySQL.
 
-## Architecture
-- **`api/internal/config`**: Configuration management using `.env`.
+## Architecture (Clean Architecture Layers)
+- **`api/internal/config`**: Configuration management using `.env` via `godotenv`.
 - **`api/internal/database`**: MySQL connectivity and GORM setup.
-- **`api/internal/model`**: Domain entities and GORM tags.
-- **`api/internal/repository`**: Interface-based data access layer.
+- **`api/internal/model`**: Domain entities with GORM tags (`User`).
+- **`api/internal/repository`**: Interface-based data access layer (GORM implementation).
+- **`api/internal/service`**: Business logic layer — bcrypt hashing, duplicate email validation.
+- **`api/internal/handler`**: HTTP handlers with Gin binding validation.
+- **`api/internal/router`**: Gin router with `/api/v1` prefix and route grouping.
+
+**Dependency Flow:**
+```
+main.go → config → database (AutoMigrate) → repository → service → handler → router → Run()
+```
 
 ## Getting Started
 
