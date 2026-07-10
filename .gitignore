@@ -29,6 +29,10 @@ vendor/
 .env.local
 *.env
 
+# Firebase Admin SDK credentials
+*-firebase-adminsdk-*.json
+firebase-credentials.json
+
 # Editor / IDE
 .vscode/
 .idea/

@@ -9,6 +9,7 @@ type UserRepository interface {
 	Create(user *model.User) error
 	FindByID(id uint) (*model.User, error)
 	FindByEmail(email string) (*model.User, error)
+	FindByFirebaseUID(uid string) (*model.User, error)
 	FindAll() ([]model.User, error)
 }
 
@@ -33,6 +34,12 @@ func (r *userRepository) FindByID(id uint) (*model.User, error) {
 func (r *userRepository) FindByEmail(email string) (*model.User, error) {
 	var user model.User
 	err := r.db.Where("email = ?", email).First(&user).Error
+	return &user, err
+}
+
+func (r *userRepository) FindByFirebaseUID(uid string) (*model.User, error) {
+	var user model.User
+	err := r.db.Where("firebase_uid = ?", uid).First(&user).Error
 	return &user, err
 }
 

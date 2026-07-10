@@ -8,12 +8,13 @@ import (
 )
 
 type Config struct {
-	DBHost     string
-	DBPort     string
-	DBUser     string
-	DBPassword string
-	DBName     string
-	AppPort    string
+	DBHost                  string
+	DBPort                  string
+	DBUser                  string
+	DBPassword              string
+	DBName                  string
+	AppPort                 string
+	FirebaseCredentialsPath string
 }
 
 func Load() *Config {
@@ -26,8 +27,9 @@ func Load() *Config {
 		DBPort:     getEnv("DB_PORT", "3306"),
 		DBUser:     getEnv("DB_USER", "root"),
 		DBPassword: getEnv("DB_PASSWORD", ""),
-		DBName:     getEnv("DB_NAME", "myapi_db"),
-		AppPort:    getEnv("APP_PORT", "8080"),
+		DBName:                  getEnv("DB_NAME", "myapi_db"),
+		AppPort:                 getEnv("APP_PORT", "8080"),
+		FirebaseCredentialsPath: getEnv("FIREBASE_CREDENTIALS_PATH", "firebase-credentials.json"),
 	}
 }
 
