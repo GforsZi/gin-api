@@ -1,4 +1,4 @@
-# User Management Service
+# Gin Api
 
 A clean, modular RESTful API built with **Go**, **Gin** (Web Framework), and **GORM** (ORM). This service provides user management capabilities including registration, retrieval, and password hashing, using a layered clean architecture approach.
 
